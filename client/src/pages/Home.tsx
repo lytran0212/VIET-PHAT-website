@@ -97,15 +97,6 @@ export default function Home() {
 
             {/* Visual Effect Layer */}
             <div className="relative h-[400px] w-full flex items-center justify-center">
-              {/* The "Layer" - Circle Background */}
-              <motion.div 
-                initial={{ scale: 0.8, opacity: 0 }}
-                whileInView={{ scale: 1, opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8 }}
-                className="absolute w-[300px] h-[300px] md:w-[400px] md:h-[400px] bg-blue-50 rounded-full z-10"
-              />
-              
               {/* Feature Fish Image */}
               <motion.div
                 initial={{ x: 50, opacity: 0 }}
