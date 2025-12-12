@@ -6,6 +6,7 @@ import heroImage from "@assets/generated_images/seafood_hero_banner.png";
 import fishImage from "@assets/generated_images/fresh_fish_fillets.png";
 import shrimpImage from "@assets/generated_images/fresh_raw_shrimp.png";
 import factoryImage from "@assets/generated_images/seafood_processing_factory.png";
+import wholeFish from "@assets/generated_images/whole_salmon_on_white.png";
 
 export default function Home() {
   return (
@@ -56,7 +57,104 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Introduction */}
+      {/* Freshness Feature Section (Fish Layer Effect) */}
+      <section className="py-24 bg-white overflow-hidden">
+        <div className="container px-4">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            {/* Text Content */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="relative z-10"
+            >
+              <h2 className="text-4xl md:text-5xl font-heading font-bold text-primary mb-6 leading-tight">
+                Freshness <br />
+                <span className="text-accent">Redefined</span>
+              </h2>
+              <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
+                Experience the difference of seafood that is processed at the peak of freshness. Our state-of-the-art facilities ensure that every catch retains its natural flavor and texture.
+              </p>
+              <ul className="space-y-4 mb-8">
+                {[
+                  "Caught and processed within hours",
+                  "Strict temperature control",
+                  "International safety standards certified"
+                ].map((item, i) => (
+                  <li key={i} className="flex items-center gap-3 text-foreground font-medium">
+                    <div className="h-2 w-2 rounded-full bg-accent" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <Link href="/products">
+                <Button variant="outline" className="rounded-full px-8 border-primary text-primary hover:bg-primary hover:text-white transition-all">
+                  View Our Standards
+                </Button>
+              </Link>
+            </motion.div>
+
+            {/* Visual Effect Layer */}
+            <div className="relative h-[400px] w-full flex items-center justify-center">
+              {/* The "Layer" - Circle Background */}
+              <motion.div 
+                initial={{ scale: 0.8, opacity: 0 }}
+                whileInView={{ scale: 1, opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+                className="absolute w-[300px] h-[300px] md:w-[400px] md:h-[400px] bg-blue-50 rounded-full z-10"
+              />
+              
+              {/* Fish Layer 1 (Bottom - Tail) */}
+              {/* This fish sits behind the logical "top" but we use z-index to place it. 
+                  Actually, for "Tail UNDER Layer", the Tail needs to be BEHIND the Circle.
+                  So Fish 1 is z-index 0 (or 5), Circle is z-index 10.
+              */}
+              <motion.div
+                initial={{ x: 50, opacity: 0 }}
+                whileInView={{ x: 0, opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="absolute w-full max-w-[500px] z-0"
+              >
+                 <img 
+                  src={wholeFish} 
+                  alt="Fresh Salmon" 
+                  className="w-full h-auto object-contain mix-blend-multiply" 
+                />
+              </motion.div>
+
+               {/* Fish Layer 2 (Top - Head) */}
+               {/* This fish sits ON TOP of the Circle (z-index 20).
+                   We clip it so we only see the HEAD.
+                   Assuming Head is on the LEFT side of the image.
+                   clip-path: inset(0 50% 0 0) -> Show left 50%.
+               */}
+              <motion.div
+                initial={{ x: 50, opacity: 0 }}
+                whileInView={{ x: 0, opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="absolute w-full max-w-[500px] z-20"
+                style={{ clipPath: "inset(0 45% 0 0)" }}
+              >
+                 <img 
+                  src={wholeFish} 
+                  alt="Fresh Salmon Head" 
+                  className="w-full h-auto object-contain mix-blend-multiply drop-shadow-2xl" 
+                />
+              </motion.div>
+
+              {/* Decorative Elements */}
+              <div className="absolute top-10 right-10 w-4 h-4 bg-accent rounded-full z-30 animate-pulse" />
+              <div className="absolute bottom-20 left-10 w-6 h-6 border-2 border-primary/20 rounded-full z-0" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Introduction Section */}
       <section className="py-20 md:py-28 bg-white">
         <div className="container px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center">
