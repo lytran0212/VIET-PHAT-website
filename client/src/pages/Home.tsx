@@ -6,7 +6,7 @@ import heroImage from "@assets/generated_images/seafood_hero_banner.png";
 import fishImage from "@assets/generated_images/fresh_fish_fillets.png";
 import shrimpImage from "@assets/generated_images/fresh_raw_shrimp.png";
 import factoryImage from "@assets/generated_images/seafood_processing_factory.png";
-import wholeFish from "@assets/generated_images/whole_salmon_on_white.png";
+import featureFish from "@assets/Gemini_Generated_Image_raijkpraijkpraij@2x_1765543017417.png";
 
 export default function Home() {
   return (
@@ -106,43 +106,18 @@ export default function Home() {
                 className="absolute w-[300px] h-[300px] md:w-[400px] md:h-[400px] bg-blue-50 rounded-full z-10"
               />
               
-              {/* Fish Layer 1 (Bottom - Tail) */}
-              {/* This fish sits behind the logical "top" but we use z-index to place it. 
-                  Actually, for "Tail UNDER Layer", the Tail needs to be BEHIND the Circle.
-                  So Fish 1 is z-index 0 (or 5), Circle is z-index 10.
-              */}
-              <motion.div
-                initial={{ x: 50, opacity: 0 }}
-                whileInView={{ x: 0, opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className="absolute w-full max-w-[500px] z-0"
-              >
-                 <img 
-                  src={wholeFish} 
-                  alt="Fresh Salmon" 
-                  className="w-full h-auto object-contain mix-blend-multiply" 
-                />
-              </motion.div>
-
-               {/* Fish Layer 2 (Top - Head) */}
-               {/* This fish sits ON TOP of the Circle (z-index 20).
-                   We clip it so we only see the HEAD.
-                   Assuming Head is on the LEFT side of the image.
-                   clip-path: inset(0 50% 0 0) -> Show left 50%.
-               */}
+              {/* Feature Fish Image */}
               <motion.div
                 initial={{ x: 50, opacity: 0 }}
                 whileInView={{ x: 0, opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: 0.2 }}
                 className="absolute w-full max-w-[500px] z-20"
-                style={{ clipPath: "inset(0 45% 0 0)" }}
               >
                  <img 
-                  src={wholeFish} 
-                  alt="Fresh Salmon Head" 
-                  className="w-full h-auto object-contain mix-blend-multiply drop-shadow-2xl" 
+                  src={featureFish} 
+                  alt="Fresh Seafood Selection" 
+                  className="w-full h-auto object-contain drop-shadow-2xl" 
                 />
               </motion.div>
 
