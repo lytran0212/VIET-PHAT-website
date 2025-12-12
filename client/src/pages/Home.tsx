@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { ArrowRight, CheckCircle, Fish, Ship, Globe } from "lucide-react";
-import heroImage from "@assets/generated_images/seafood_hero_banner.png";
+import heroVideo from "@assets/Tạo_Video_Đàn_Cá_Bơi_Lượn_1765544890139.mp4";
 import fishImage from "@assets/generated_images/fresh_fish_fillets.png";
 import shrimpImage from "@assets/generated_images/fresh_raw_shrimp.png";
 import factoryImage from "@assets/generated_images/seafood_processing_factory.png";
@@ -13,12 +13,23 @@ export default function Home() {
     <div className="w-full">
       {/* Hero Section */}
       <section className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
-        <div 
-          className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url(${heroImage})` }}
-        >
+        <div className="absolute inset-0 z-0">
+          <video 
+            autoPlay 
+            muted 
+            loop 
+            playsInline 
+            className="absolute inset-0 w-full h-full object-cover"
+          >
+            <source src={heroVideo} type="video/mp4" />
+          </video>
+          
+          {/* Overlays */}
           <div className="absolute inset-0 bg-gradient-to-r from-primary/90 to-primary/40 mix-blend-multiply" />
           <div className="absolute inset-0 bg-black/20" />
+          
+          {/* Bottom Blur/Fade Transition */}
+          <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white via-white/60 to-transparent backdrop-blur-[1px]" />
         </div>
 
         <div className="container relative z-10 px-4 text-center md:text-left">
