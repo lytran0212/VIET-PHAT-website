@@ -21,7 +21,11 @@ import emperorfishImg from "@assets/generated_images/fresh_emperorfish.png";
 import parrotfishImg from "@assets/generated_images/fresh_parrotfish.png";
 import redSnapperImg from "@assets/generated_images/fresh_red_snapper.png";
 
-import shrimpImage from "@assets/generated_images/fresh_raw_shrimp.png";
+import hosoImg from "@assets/generated_images/hoso_shrimp.png";
+import hlsoImg from "@assets/generated_images/hlso_shrimp.png";
+import ezpImg from "@assets/generated_images/ezp_shrimp.png";
+import pdtoImg from "@assets/generated_images/pdto_shrimp.png";
+import pdImg from "@assets/generated_images/pd_shrimp.png";
 
 const fishProducts = [
   {
@@ -170,6 +174,44 @@ const fishProducts = [
   }
 ];
 
+const shrimpProducts = [
+  {
+    id: "01",
+    name: "HOSO",
+    fullName: "Head On Shell On",
+    image: hosoImg,
+    sizes: "6/8, 8/12, 13/15, 16/20, 21/25, 26/30, 31/40, 41/50, 51/60 pcs/lb"
+  },
+  {
+    id: "02",
+    name: "HLSO",
+    fullName: "Headless Shell On",
+    image: hlsoImg,
+    sizes: "8/12, 13/15, 16/20, 21/25, 26/30, 31/40, 41/50, 51/60, 61/70 pcs/lb"
+  },
+  {
+    id: "03",
+    name: "EZP",
+    fullName: "Easy Peel",
+    image: ezpImg,
+    sizes: "8/12, 13/15, 16/20, 21/25, 26/30, 31/40, 41/50, 51/60, 61/70 pcs/lb"
+  },
+  {
+    id: "04",
+    name: "PDTO",
+    fullName: "Peeled Deveined Tail On",
+    image: pdtoImg,
+    sizes: "13/15, 16/20, 21/25, 26/30, 31/40, 41/50, 51/60, 61/70, 71/90 pcs/lb"
+  },
+  {
+    id: "05",
+    name: "PD",
+    fullName: "Peeled Deveined",
+    image: pdImg,
+    sizes: "16/20, 21/25, 26/30, 31/40, 41/50, 51/60, 61/70, 71/90, 91/120 pcs/lb"
+  }
+];
+
 export default function Products() {
   return (
     <div className="pt-20">
@@ -249,72 +291,76 @@ export default function Products() {
           </TabsContent>
 
           <TabsContent value="shrimp" className="space-y-8 animate-in fade-in-50 duration-500">
-            <div className="grid md:grid-cols-2 gap-12 items-start">
-              <div className="rounded-2xl overflow-hidden shadow-xl order-1 md:order-2">
-                <img src={shrimpImage} alt="Shrimp Products" className="w-full h-auto object-cover" />
-              </div>
-              <div className="order-2 md:order-1">
-                <h2 className="text-3xl font-heading font-bold text-accent mb-4">Premium Frozen Shrimp</h2>
-                <p className="text-muted-foreground mb-8">
-                  From Black Tiger to Vannamei, our shrimp products are processed with care to maintain their natural sweetness and firm texture.
-                </p>
-                
-                <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
-                  <span className="w-2 h-8 bg-accent rounded-full"></span>
-                  Specifications
-                </h3>
-                <Card className="border-none shadow-md overflow-hidden">
-                  <Table>
-                    <TableHeader className="bg-muted">
-                      <TableRow>
-                        <TableHead className="font-bold text-primary">Abbreviation</TableHead>
-                        <TableHead className="font-bold text-primary">Description</TableHead>
-                        <TableHead className="font-bold text-primary">Sizes (pcs/lb)</TableHead>
-                      </TableRow>
-                    </TableHeader>
-                    <TableBody>
-                      <TableRow>
-                        <TableCell className="font-bold text-accent">HOSO</TableCell>
-                        <TableCell className="font-medium">Head On Shell On</TableCell>
-                        <TableCell className="text-sm text-muted-foreground">6/8, 8/12, 13/15, 16/20, 21/25, 26/30, 31/40, 41/50, 51/60</TableCell>
-                      </TableRow>
-                      <TableRow>
-                        <TableCell className="font-bold text-accent">HLSO</TableCell>
-                        <TableCell className="font-medium">Headless Shell On</TableCell>
-                         <TableCell className="text-sm text-muted-foreground">8/12, 13/15, 16/20, 21/25, 26/30, 31/40, 41/50, 51/60, 61/70</TableCell>
-                      </TableRow>
-                      <TableRow>
-                        <TableCell className="font-bold text-accent">EZP</TableCell>
-                        <TableCell className="font-medium">Easy Peel</TableCell>
-                         <TableCell className="text-sm text-muted-foreground">8/12, 13/15, 16/20, 21/25, 26/30, 31/40, 41/50, 51/60, 61/70</TableCell>
-                      </TableRow>
-                      <TableRow>
-                        <TableCell className="font-bold text-accent">PDTO</TableCell>
-                        <TableCell className="font-medium">Peeled Deveined Tail On</TableCell>
-                         <TableCell className="text-sm text-muted-foreground">13/15, 16/20, 21/25, 26/30, 31/40, 41/50, 51/60, 61/70, 71/90</TableCell>
-                      </TableRow>
-                      <TableRow>
-                        <TableCell className="font-bold text-accent">PD</TableCell>
-                        <TableCell className="font-medium">Peeled Deveined</TableCell>
-                         <TableCell className="text-sm text-muted-foreground">16/20, 21/25, 26/30, 31/40, 41/50, 51/60, 61/70, 71/90, 91/120</TableCell>
-                      </TableRow>
-                    </TableBody>
-                  </Table>
-                </Card>
+            <div className="text-center max-w-3xl mx-auto mb-12">
+              <h2 className="text-3xl font-heading font-bold text-accent mb-4">Premium Frozen Shrimp</h2>
+              <p className="text-muted-foreground">
+                From Black Tiger to Vannamei, our shrimp products are processed with care to maintain their natural sweetness and firm texture.
+              </p>
+            </div>
 
-                <div className="mt-8 bg-blue-50 p-6 rounded-xl border border-blue-100">
-                  <h3 className="text-xl font-bold mb-2 text-primary">Packing Options</h3>
-                  <p className="text-sm text-muted-foreground">
-                    All products can be packed according to specific customer requirements.
-                  </p>
-                  <div className="mt-4 flex flex-wrap gap-2">
-                     {["Bulk", "IWP", "IVP", "Block", "Retail Pack"].map((item) => (
-                      <div key={item} className="bg-white border border-blue-200 rounded-lg px-3 py-2 text-sm text-primary font-medium shadow-sm">
-                        {item}
+            <div className="grid gap-8">
+              {shrimpProducts.map((product) => (
+                <motion.div 
+                  key={product.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  className="bg-white rounded-2xl shadow-lg border border-border/50 overflow-hidden"
+                >
+                  <div className="grid md:grid-cols-3 gap-0">
+                    {/* Image Section */}
+                    <div className="md:col-span-1 bg-accent/5 relative min-h-[250px] md:min-h-full flex items-center justify-center p-6">
+                      <div className="absolute top-6 left-6 z-10">
+                        <span className="text-6xl font-bold text-accent/10 font-heading leading-none">
+                          {product.id}
+                        </span>
                       </div>
-                    ))}
+                      <img 
+                        src={product.image} 
+                        alt={product.name} 
+                        className="w-full h-auto object-contain max-h-[200px] drop-shadow-xl transition-transform hover:scale-105 duration-500" 
+                      />
+                    </div>
+
+                    {/* Content Section */}
+                    <div className="md:col-span-2 p-8 flex flex-col justify-center">
+                      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
+                        <div>
+                          <h3 className="text-3xl font-heading font-bold text-primary flex items-center gap-3">
+                            {product.name}
+                            <Badge variant="outline" className="border-accent text-accent">
+                              {product.fullName}
+                            </Badge>
+                          </h3>
+                        </div>
+                      </div>
+                      
+                      <div className="bg-blue-50/50 p-6 rounded-xl border border-blue-100/50">
+                        <span className="block text-accent font-bold text-sm mb-2 uppercase tracking-wide flex items-center gap-2">
+                          <span className="w-2 h-2 rounded-full bg-accent"></span>
+                          Available Sizes
+                        </span>
+                        <p className="text-lg font-medium text-foreground/90">
+                          {product.sizes}
+                        </p>
+                      </div>
+                    </div>
                   </div>
-                </div>
+                </motion.div>
+              ))}
+            </div>
+
+            <div className="mt-12 bg-blue-50 p-8 rounded-xl border border-blue-100 text-center">
+              <h3 className="text-xl font-bold mb-4 text-primary">Packing Options</h3>
+              <p className="text-muted-foreground mb-6">
+                All products can be packed according to specific customer requirements.
+              </p>
+              <div className="flex flex-wrap justify-center gap-3">
+                  {["Bulk", "IWP", "IVP", "Block", "Retail Pack"].map((item) => (
+                  <div key={item} className="bg-white border border-blue-200 rounded-full px-6 py-2 text-sm text-primary font-bold shadow-sm">
+                    {item}
+                  </div>
+                ))}
               </div>
             </div>
           </TabsContent>
