@@ -1,0 +1,7 @@
+03- PANGASIUS
+WR sizes: 500/800, 800/1200, 1200/UP gr/pc
+HGT (Chunk) sizes: 300/500, 500/800, 800/1200 gr/pc
+STEAK thickness: 20-30 mm
+FILLET sizes: 120/170, 170/220, 220/Up gr/pc
+FINGER dimensions: 90 x 20 x 15 mm
+BURGER dimensions: 90 x 90 x 15 mm

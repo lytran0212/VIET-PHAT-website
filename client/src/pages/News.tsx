@@ -32,9 +32,9 @@ export default function News() {
   ];
 
   return (
-    <div className="pt-20">
-      <div className="bg-muted/30 py-16">
-        <div className="container px-4 text-center">
+    <div className="pt-20 flex flex-col items-center w-full">
+      <div className="bg-muted/30 py-16 w-full flex justify-center">
+        <div className="w-full max-w-7xl px-4 text-center">
           <h1 className="text-4xl font-heading font-bold text-primary mb-4">News & Updates</h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Stay informed with the latest company news and seafood market insights.
@@ -42,10 +42,10 @@ export default function News() {
         </div>
       </div>
 
-      <div className="container px-4 py-16">
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="w-full max-w-7xl px-4 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
           {newsItems.map((news) => (
-            <Card key={news.id} className="overflow-hidden hover:shadow-xl transition-shadow duration-300 border-border/50">
+            <Card key={news.id} className="overflow-hidden hover:shadow-xl transition-shadow duration-300 border-border/50 w-full max-w-sm">
               <div className="h-48 overflow-hidden">
                 <img src={news.image} alt={news.title} className="w-full h-full object-cover transition-transform duration-500 hover:scale-105" />
               </div>

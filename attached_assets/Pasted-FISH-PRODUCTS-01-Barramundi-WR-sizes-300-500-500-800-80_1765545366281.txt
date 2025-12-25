@@ -25,11 +25,7 @@ LOIN sizes 2/3, 3/5, 5/7, 7/UP kg/pc
 STEAK sizes 4/6, 6/8, 8/12 oz/pc
 SAKU sizes 200/300, 300/500 gr/pc
  
-05-  Skipjack Tuna:
-Whole Round sizes 1/2, 2/3 kg/pc
-Whole Gutted sizes 1/2, 2/3 kg/pc
- 
-06-  Round Scad:
+05-  Round Scad:
 Whole Round sizes 6/8, 8/10, 10/12, 12/14, 14/18 pcs/kg
 Whole Gutted sizes 6/8, 8/10, 10/12, 12/14, 14/18 pcs/kg
  

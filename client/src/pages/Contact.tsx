@@ -40,9 +40,9 @@ export default function Contact() {
   }
 
   return (
-    <div className="pt-20">
-      <div className="bg-primary text-white py-16">
-        <div className="container px-4 text-center">
+    <div className="pt-20 flex flex-col items-center w-full">
+      <div className="bg-primary text-white py-16 w-full flex justify-center">
+        <div className="w-full max-w-7xl px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-heading font-bold mb-6">Contact Us</h1>
           <p className="text-xl max-w-2xl mx-auto text-blue-100">
             Start Your Long-term Cooperation with Viet Phat Today.
@@ -50,8 +50,8 @@ export default function Contact() {
         </div>
       </div>
 
-      <div className="container px-4 py-16">
-        <div className="grid lg:grid-cols-2 gap-16">
+      <div className="w-full max-w-7xl px-4 py-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           
           {/* Contact Info */}
           <div>
@@ -77,7 +77,7 @@ export default function Contact() {
                 <div>
                   <h3 className="font-bold text-lg">Phone / WhatsApp / Zalo</h3>
                   <p className="text-muted-foreground">
-                    +84 123 456 789
+                    +84-912-340 640
                   </p>
                 </div>
               </div>
@@ -89,7 +89,7 @@ export default function Contact() {
                 <div>
                   <h3 className="font-bold text-lg">Email</h3>
                   <p className="text-muted-foreground">
-                    sales@vietphatseafood.com
+                    info@vietphat-ap.com
                   </p>
                 </div>
               </div>

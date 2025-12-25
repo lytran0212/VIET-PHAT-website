@@ -1,26 +1,29 @@
 import { motion } from "framer-motion";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { ScrollArea } from "@/components/ui/scroll-area";
+import { Link } from "wouter";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
-// Fish Images
-import barramundiImg from "@assets/generated_images/fresh_barramundi_fish.png";
-import tilapiaImg from "@assets/generated_images/fresh_tilapia_fish.png";
-import pangasiusImg from "@assets/generated_images/fresh_pangasius_fish.png";
-import yellowfinImg from "@assets/generated_images/fresh_yellowfin_tuna.png";
-import skipjackImg from "@assets/generated_images/fresh_skipjack_tuna.png";
-import roundScadImg from "@assets/generated_images/fresh_round_scad.png";
-import indianMackerelImg from "@assets/generated_images/fresh_indian_mackerel.png";
-import yellowtailScadImg from "@assets/generated_images/fresh_yellowtail_scad.png";
-import blackPomfretImg from "@assets/generated_images/fresh_black_pomfret.png";
-import redMulletImg from "@assets/generated_images/fresh_red_mullet.png";
-import grouperImg from "@assets/generated_images/fresh_grouper_fish.png";
-import emperorfishImg from "@assets/generated_images/fresh_emperorfish.png";
-import parrotfishImg from "@assets/generated_images/fresh_parrotfish.png";
-import redSnapperImg from "@assets/generated_images/fresh_red_snapper.png";
+// Fish Images (use URLs to avoid import-analysis issues with folder names containing spaces/Unicode)
+const barramundiImg = "/generated_images/ảnh cá/04- BARRAMUNDI.png";
+const blackTilapiaImg = "/generated_images/ảnh cá/01- BLACK TILAPIA.png";
+const redTilapiaImg = "/generated_images/ảnh cá/02- RED TILAPIA.png";
+const pangasiusImg = "/generated_images/ảnh cá/03- PANGASIUS.png";
+const pompanoImg = "/generated_images/ảnh cá/05- POMPANO.png";
+const yellowStripTrevallyImg = "/generated_images/ảnh cá/07- YELLOW STRIP TREVALLY.png";
+const yellowfinImg = "/generated_images/ảnh cá/06- YELLOWFIN TUNA.png";
+const roundScadImg = "/generated_images/ảnh cá/09- ROUND SCAD.png";
+const indianMackerelImg = "/generated_images/ảnh cá/08- INDIAN MACKEREL.png";
+const yellowtailScadImg = "/generated_images/ảnh cá/10- YELLOWTAIL SCAD.png";
+const horseMackerelImg = "/generated_images/ảnh cá/11- HORSE MACKEREL.png";
+const threadfinBreamImg = "/generated_images/ảnh cá/12- THREADFIN BREAM.png";
+const blackPomfretImg = "/generated_images/ảnh cá/13- BLACK POMFRET.png";
+const redMulletImg = "/generated_images/ảnh cá/14- RED MULLET.png";
+const grouperImg = "/generated_images/ảnh cá/15- GROUPER.png";
+const emperorfishImg = "/generated_images/ảnh cá/16- EMPERORFISH.png";
+const parrotfishImg = "/generated_images/ảnh cá/18- PARROTFISH.png";
+const redSnapperImg = "/generated_images/ảnh cá/17- RED SNAPPER.png";
 
+// Shrimp Images
 import hosoImg from "@assets/generated_images/hoso_shrimp.png";
 import hlsoImg from "@assets/generated_images/hlso_shrimp.png";
 import ezpImg from "@assets/generated_images/ezp_shrimp.png";
@@ -29,196 +32,138 @@ import pdImg from "@assets/generated_images/pd_shrimp.png";
 
 const fishProducts = [
   {
-    id: "01",
     name: "Barramundi",
     image: barramundiImg,
-    specs: [
-      { label: "WR", value: "300/500, 500/800, 800/1000, 1000/3000 gr/pc" },
-      { label: "WGGS", value: "300/500, 500/800, 800/1000, 1000/3000 gr/pc" },
-      { label: "FILLET", value: "100/200, 200/300, 300/500, 500/800, 800/1000 gr/pc" },
-      { label: "PORTION", value: "50/80, 80/120, 120/170, 170/230 gr/pc" }
-    ]
+    specs: ["WR: 300/500, 500/800, 800/1000, 1000/3000 gr/pc", "WGGS: 300/500, 500/800, 800/1000, 1000/3000 gr/pc", "FILLET: 100/200, 200/300, 300/500, 500/800, 800/1000 gr/pc", "PORTION: 50/80, 80/120, 120/170, 170/230 gr/pc"]
   },
   {
-    id: "02",
-    name: "Tilapia",
-    image: tilapiaImg,
-    specs: [
-      { label: "WR", value: "200/300, 300/500, 500/800, 800/1200 gr/pc" },
-      { label: "WGGS", value: "200/300, 300/500, 500/800, 800/1200 gr/pc" },
-      { label: "MOON-CUT", value: "Fin Off, Tail Off sizes 100/200, 200/300, 300/500 gr/pc" },
-      { label: "FILLET", value: "50/80, 80/120, 120/170, 170/230 gr/pc" }
-    ]
+    name: "Black Tilapia",
+    image: blackTilapiaImg,
+    specs: ["WR: 200/300, 300/500, 500/800, 800/1200 gr/pc", "WGGS: 200/300, 300/500, 500/800, 800/1200 gr/pc", "MOON-CUT: Fin Off, Tail Off sizes 100/200, 200/300, 300/500 gr/pc", "FILLET: 50/80, 80/120, 120/170, 170/230 gr/pc"]
   },
   {
-    id: "03",
+    name: "Red Tilapia",
+    image: redTilapiaImg,
+    specs: ["WR: 200/300, 300/500, 500/800, 800/1200 gr/pc", "WGGS: 200/300, 300/500, 500/800, 800/1200 gr/pc", "MOON-CUT: Fin Off, Tail Off sizes 100/200, 200/300, 300/500 gr/pc", "FILLET: 50/80, 80/120, 120/170, 170/230 gr/pc"]
+  },
+  {
     name: "Pangasius",
     image: pangasiusImg,
-    specs: [
-      { label: "WR", value: "500/800, 800/1200, 1200/UP gr/pc" },
-      { label: "HGT (Chunk)", value: "300/500, 500/800, 800/1200 gr/pc" },
-      { label: "STEAK", value: "thickness 20-30 mm" },
-      { label: "FILLET", value: "120/170, 170/220, 220/Up gr/pc" },
-      { label: "FINGER", value: "dimensions 90 x 20 x 15 mm" },
-      { label: "BURGER", value: "dimensions 90 x 90 x 15 mm" }
-    ]
+    specs: ["WR: 500/800, 800/1200, 1200/UP gr/pc", "HGT (Chunk): 300/500, 500/800, 800/1200 gr/pc", "STEAK: thickness 20-30 mm", "FILLET: 120/170, 170/220, 220/Up gr/pc", "FINGER: dimensions 90 x 20 x 15 mm", "BURGER: dimensions 90 x 90 x 15 mm"]
   },
   {
-    id: "04",
+    name: "Pompano",
+    image: pompanoImg,
+    specs: ["Whole Round: 100/200, 200/300, 300/500, 500/1000, 1000/Up gr/pc", "Whole Gutted: 100/200, 200/300, 300/500, 500/1000, 1000/Up gr/pc"]
+  },
+  {
+    name: "Yellow Strip Trevally",
+    image: yellowStripTrevallyImg,
+    specs: ["Whole Round: 10/14, 14/18, 18/25 pcs/kg", "Whole Gutted: 10/14, 14/18, 18/25 pcs/kg", "Butterfly: 10/14, 14/18, 18/25 pcs/kg"]
+  },
+  {
     name: "Yellowfin Tuna",
     image: yellowfinImg,
-    specs: [
-      { label: "LOIN", value: "2/3, 3/5, 5/7, 7/UP kg/pc" },
-      { label: "STEAK", value: "4/6, 6/8, 8/12 oz/pc" },
-      { label: "SAKU", value: "200/300, 300/500 gr/pc" }
-    ]
+    specs: ["LOIN: 2/3, 3/5, 5/7, 7/UP kg/pc", "STEAK: 4/6, 6/8, 8/12 oz/pc", "SAKU: 200/300, 300/500 gr/pc"]
   },
+ 
   {
-    id: "05",
-    name: "Skipjack Tuna",
-    image: skipjackImg,
-    specs: [
-      { label: "Whole Round", value: "1/2, 2/3 kg/pc" },
-      { label: "Whole Gutted", value: "1/2, 2/3 kg/pc" }
-    ]
-  },
-  {
-    id: "06",
     name: "Round Scad",
     image: roundScadImg,
-    specs: [
-      { label: "Whole Round", value: "6/8, 8/10, 10/12, 12/14, 14/18 pcs/kg" },
-      { label: "Whole Gutted", value: "6/8, 8/10, 10/12, 12/14, 14/18 pcs/kg" }
-    ]
+    specs: ["Whole Round: 6/8, 8/10, 10/12, 12/14, 14/18 pcs/kg", "Whole Gutted: 6/8, 8/10, 10/12, 12/14, 14/18 pcs/kg"]
   },
   {
-    id: "07",
     name: "Indian Mackerel",
     image: indianMackerelImg,
-    specs: [
-      { label: "Whole Round", value: "6/8, 8/10, 10/12, 12/14, 14/18 pcs/kg" },
-      { label: "Whole Gutted", value: "6/8, 8/10, 10/12, 12/14, 14/18 pcs/kg" }
-    ]
+    specs: ["Whole Round: 6/8, 8/10, 10/12, 12/14, 14/18 pcs/kg", "Whole Gutted: 6/8, 8/10, 10/12, 12/14, 14/18 pcs/kg"]
   },
   {
-    id: "08",
     name: "Yellowtail Scad",
     image: yellowtailScadImg,
-    specs: [
-      { label: "Whole Round", value: "4/6, 6/8, 8/12 pcs/kg" },
-      { label: "Whole Gutted", value: "4/6, 6/8, 8/12 pcs/kg" }
-    ]
+    specs: ["Whole Round: 4/6, 6/8, 8/12 pcs/kg", "Whole Gutted: 4/6, 6/8, 8/12 pcs/kg"]
   },
   {
-    id: "09",
+    name: "Horse Mackerel",
+    image: horseMackerelImg,
+    specs: ["Whole Round: 4/6, 6/8, 8/12 pcs/kg", "Whole Gutted: 4/6, 6/8, 8/12 pcs/kg"]
+  },
+  {
+    name: "Threadfin Bream",
+    image: threadfinBreamImg,
+    specs: ["WR: 50/100, 100/200, 200/300 gr/pc", "WGGS: 50/100, 100/200, 200/300 gr/pc", "FILLET: 20/40, 40/80, 80/120 gr/pc"]
+  },
+  {
     name: "Black Pomfret",
     image: blackPomfretImg,
-    specs: [
-      { label: "Whole Round", value: "100/200, 200/300, 300/500, 500/1000, 1000/Up gr/pc" },
-      { label: "Whole Gutted", value: "100/200, 200/300, 300/500, 500/1000, 1000/Up gr/pc" }
-    ]
+    specs: ["Whole Round: 100/200, 200/300, 300/500, 500/1000, 1000/Up gr/pc", "Whole Gutted: 100/200, 200/300, 300/500, 500/1000, 1000/Up gr/pc"]
   },
   {
-    id: "10",
     name: "Red Mullet",
     image: redMulletImg,
-    specs: [
-      { label: "WR", value: "50/100, 100/200, 200/300 gr/pc" },
-      { label: "WGGS", value: "50/100, 100/200, 200/300 gr/pc" },
-      { label: "FILLET", value: "20/40, 40/80, 80/120 gr/pc" }
-    ]
+    specs: ["WR: 50/100, 100/200, 200/300 gr/pc", "WGGS: 50/100, 100/200, 200/300 gr/pc", "FILLET: 20/40, 40/80, 80/120 gr/pc"]
   },
   {
-    id: "11",
     name: "Grouper",
     image: grouperImg,
-    specs: [
-      { label: "WR", value: "300/500, 500/800, 800/1000, 1000/3000 gr/pc" },
-      { label: "WGGS", value: "300/500, 500/800, 800/1000, 1000/3000 gr/pc" },
-      { label: "FILLET", value: "100/200, 200/300, 300/500, 500/800, 800/Up gr/pc" },
-      { label: "PORTION", value: "50/80, 80/120, 120/170, 170/220 gr/pc" }
-    ]
+    specs: ["WR: 300/500, 500/800, 800/1000, 1000/3000 gr/pc", "WGGS: 300/500, 500/800, 800/1000, 1000/3000 gr/pc", "FILLET: 100/200, 200/300, 300/500, 500/800, 800/Up gr/pc", "PORTION: 50/80, 80/120, 120/170, 170/220 gr/pc"]
   },
   {
-    id: "12",
     name: "Emperorfish",
     image: emperorfishImg,
-    specs: [
-      { label: "WR", value: "300/500, 500/800, 800/1000, 1000/3000 gr/pc" },
-      { label: "WGGS", value: "300/500, 500/800, 800/1000, 1000/3000 gr/pc" },
-      { label: "FILLET", value: "100/200, 200/300, 300/500, 500/800, 800/Up gr/pc" },
-      { label: "PORTION", value: "50/80, 80/120, 120/170, 170/220 gr/pc" }
-    ]
+    specs: ["WR: 300/500, 500/800, 800/1000, 1000/3000 gr/pc", "WGGS: 300/500, 500/800, 800/1000, 1000/3000 gr/pc", "FILLET: 100/200, 200/300, 300/500, 500/800, 800/Up gr/pc", "PORTION: 50/80, 80/120, 120/170, 170/220 gr/pc"]
   },
   {
-    id: "13",
     name: "Parrotfish",
     image: parrotfishImg,
-    specs: [
-      { label: "WR", value: "300/500, 500/800, 800/1000, 1000/3000 gr/pc" },
-      { label: "WGGS", value: "300/500, 500/800, 800/1000, 1000/3000 gr/pc" },
-      { label: "FILLET", value: "100/200, 200/300, 300/500, 500/800, 800/Up gr/pc" },
-      { label: "PORTION", value: "50/80, 80/120, 120/170, 170/220 gr/pc" }
-    ]
+    specs: ["WR: 300/500, 500/800, 800/1000, 1000/3000 gr/pc", "WGGS: 300/500, 500/800, 800/1000, 1000/3000 gr/pc", "FILLET: 100/200, 200/300, 300/500, 500/800, 800/Up gr/pc", "PORTION: 50/80, 80/120, 120/170, 170/220 gr/pc"]
   },
   {
-    id: "14",
     name: "Red Snapper",
     image: redSnapperImg,
-    specs: [
-      { label: "WR", value: "300/500, 500/800, 800/1000, 1000/3000 gr/pc" },
-      { label: "WGGS", value: "300/500, 500/800, 800/1000, 1000/3000 gr/pc" },
-      { label: "FILLET", value: "100/200, 200/300, 300/500, 500/800, 800/Up gr/pc" },
-      { label: "PORTION", value: "50/80, 80/120, 120/170, 170/220 gr/pc" }
-    ]
+    specs: ["WR: 300/500, 500/800, 800/1000, 1000/3000 gr/pc", "WGGS: 300/500, 500/800, 800/1000, 1000/3000 gr/pc", "FILLET: 100/200, 200/300, 300/500, 500/800, 800/Up gr/pc", "PORTION: 50/80, 80/120, 120/170, 170/220 gr/pc"]
   }
 ];
 
 const shrimpProducts = [
   {
-    id: "01",
     name: "HOSO",
     fullName: "Head On Shell On",
     image: hosoImg,
-    sizes: "6/8, 8/12, 13/15, 16/20, 21/25, 26/30, 31/40, 41/50, 51/60 pcs/lb"
+    specs: ["6/8, 8/12, 13/15, 16/20, 21/25, 26/30, 31/40, 41/50, 51/60 pcs/lb"]
   },
   {
-    id: "02",
     name: "HLSO",
     fullName: "Headless Shell On",
     image: hlsoImg,
-    sizes: "8/12, 13/15, 16/20, 21/25, 26/30, 31/40, 41/50, 51/60, 61/70 pcs/lb"
+    specs: ["8/12, 13/15, 16/20, 21/25, 26/30, 31/40, 41/50, 51/60, 61/70 pcs/lb"]
   },
   {
-    id: "03",
     name: "EZP",
     fullName: "Easy Peel",
     image: ezpImg,
-    sizes: "8/12, 13/15, 16/20, 21/25, 26/30, 31/40, 41/50, 51/60, 61/70 pcs/lb"
+    specs: ["8/12, 13/15, 16/20, 21/25, 26/30, 31/40, 41/50, 51/60, 61/70 pcs/lb"]
   },
   {
-    id: "04",
     name: "PDTO",
     fullName: "Peeled Deveined Tail On",
     image: pdtoImg,
-    sizes: "13/15, 16/20, 21/25, 26/30, 31/40, 41/50, 51/60, 61/70, 71/90 pcs/lb"
+    specs: ["13/15, 16/20, 21/25, 26/30, 31/40, 41/50, 51/60, 61/70, 71/90 pcs/lb"]
   },
   {
-    id: "05",
     name: "PD",
     fullName: "Peeled Deveined",
     image: pdImg,
-    sizes: "16/20, 21/25, 26/30, 31/40, 41/50, 51/60, 61/70, 71/90, 91/120 pcs/lb"
+    specs: ["16/20, 21/25, 26/30, 31/40, 41/50, 51/60, 61/70, 71/90, 91/120 pcs/lb"]
   }
 ];
 
 export default function Products() {
   return (
-    <div className="pt-20">
+    <div className="pt-20 flex flex-col items-center w-full">
       {/* Header */}
-      <div className="bg-primary py-20 text-white relative overflow-hidden">
+      <div className="bg-primary py-20 text-white relative overflow-hidden w-full flex justify-center">
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/diagonal-stripes.png')] opacity-10"></div>
-        <div className="container px-4 text-center relative z-10">
+        <div className="w-full max-w-7xl px-4 text-center relative z-10">
           <h1 className="text-4xl md:text-6xl font-heading font-bold mb-4">Our Products</h1>
           <p className="text-lg text-blue-100 max-w-2xl mx-auto">
             Our main export strengths are Frozen Fish and Shrimp. We offer diverse specifications tailored to customer requirements.
@@ -226,7 +171,7 @@ export default function Products() {
         </div>
       </div>
 
-      <div className="container px-4 py-16">
+      <div className="w-full max-w-7xl px-6 md:px-8 lg:px-12 py-16">
         <Tabs defaultValue="fish" className="w-full">
           <div className="flex justify-center mb-12">
             <TabsList className="grid w-full max-w-md grid-cols-2 h-14 bg-muted/50 p-1">
@@ -240,50 +185,56 @@ export default function Products() {
           </div>
 
           <TabsContent value="fish" className="space-y-8 animate-in fade-in-50 duration-500">
-            <div className="grid gap-12">
-              {fishProducts.map((product) => (
-                <motion.div 
-                  key={product.id}
+            <div className="text-center max-w-3xl mx-auto mb-12">
+              <h2 className="text-3xl md:text-4xl font-heading font-bold text-primary mb-4">
+                Fish Products Catalog
+              </h2>
+              <p className="text-muted-foreground">
+                Explore our complete range of frozen fish products, each with detailed specifications
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {fishProducts.map((product, index) => (
+                <motion.div
+                  key={index}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  className="bg-white rounded-2xl shadow-lg border border-border/50 overflow-hidden"
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className="group relative bg-white rounded-2xl shadow-lg border border-border/50 overflow-hidden hover:shadow-2xl transition-all duration-300 hover:scale-105"
                 >
-                  <div className="grid md:grid-cols-3 gap-0">
-                    {/* Image Section */}
-                    <div className="md:col-span-1 bg-muted/20 relative min-h-[300px] md:min-h-full flex items-center justify-center p-6">
-                      <div className="absolute top-6 left-6 z-10">
-                        <span className="text-6xl font-bold text-primary/10 font-heading leading-none">
-                          {product.id}
-                        </span>
-                      </div>
-                      <img 
-                        src={product.image} 
-                        alt={product.name} 
-                        className="w-full h-auto object-contain max-h-[250px] drop-shadow-xl transition-transform hover:scale-105 duration-500" 
-                      />
-                    </div>
+                  {/* Product Name */}
+                  <div className="p-6 pb-3 text-center bg-gradient-to-b from-blue-50/50 to-white">
+                    <h3 className="text-2xl font-heading font-bold text-primary">{product.name}</h3>
+                  </div>
 
-                    {/* Content Section */}
-                    <div className="md:col-span-2 p-8 flex flex-col justify-center">
-                      <h2 className="text-3xl font-heading font-bold text-primary mb-6 flex items-center gap-3">
-                        {product.name}
-                        <div className="h-1 w-12 bg-accent rounded-full mt-1"></div>
-                      </h2>
-                      
-                      <div className="grid md:grid-cols-2 gap-6">
-                        {product.specs.map((spec, index) => (
-                          <div key={index} className="bg-blue-50/50 p-4 rounded-lg border border-blue-100/50 hover:bg-blue-50 transition-colors">
-                            <span className="block text-accent font-bold text-sm mb-1 uppercase tracking-wide">
-                              {spec.label}
-                            </span>
-                            <span className="text-foreground/90 font-medium">
-                              {spec.value}
-                            </span>
-                          </div>
+                  {/* Product Image Container */}
+                  <div className="relative h-64 overflow-hidden bg-gradient-to-b from-blue-50/30 to-white p-4">
+                    <img
+                      src={product.image}
+                      alt={product.name}
+                      className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110"
+                    />
+                    
+                    {/* Hover Overlay with Product's specs */}
+                    <div className="absolute inset-0 bg-primary/95 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-6 flex flex-col justify-center">
+                      <h4 className="text-white font-bold text-lg mb-3 text-center">Product's specs</h4>
+                      <div className="space-y-2 max-h-full overflow-y-auto">
+                        {product.specs.map((spec, idx) => (
+                          <p key={idx} className="text-white/90 text-sm leading-relaxed">
+                            • {spec}
+                          </p>
                         ))}
                       </div>
                     </div>
+                  </div>
+
+                  {/* Bottom Info */}
+                  <div className="p-6 pt-3 text-center bg-gradient-to-t from-blue-50/30 to-white">
+                    <p className="text-muted-foreground text-sm">
+                      Different sizes and cuts available <Link href="/contact" className="text-accent hover:underline font-medium">contact</Link>
+                    </p>
                   </div>
                 </motion.div>
               ))}
@@ -292,72 +243,71 @@ export default function Products() {
 
           <TabsContent value="shrimp" className="space-y-8 animate-in fade-in-50 duration-500">
             <div className="text-center max-w-3xl mx-auto mb-12">
-              <h2 className="text-3xl font-heading font-bold text-accent mb-4">Premium Frozen Shrimp</h2>
+              <h2 className="text-3xl md:text-4xl font-heading font-bold text-accent mb-4">
+                Shrimp Products Catalog
+              </h2>
               <p className="text-muted-foreground">
                 From Black Tiger to Vannamei, our shrimp products are processed with care to maintain their natural sweetness and firm texture.
               </p>
             </div>
 
-            <div className="grid gap-8">
-              {shrimpProducts.map((product) => (
-                <motion.div 
-                  key={product.id}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {shrimpProducts.map((product, index) => (
+                <motion.div
+                  key={index}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  className="bg-white rounded-2xl shadow-lg border border-border/50 overflow-hidden"
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className="group relative bg-white rounded-2xl shadow-lg border border-border/50 overflow-hidden hover:shadow-2xl transition-all duration-300 hover:scale-105"
                 >
-                  <div className="grid md:grid-cols-3 gap-0">
-                    {/* Image Section */}
-                    <div className="md:col-span-1 bg-accent/5 relative min-h-[250px] md:min-h-full flex items-center justify-center p-6">
-                      <div className="absolute top-6 left-6 z-10">
-                        <span className="text-6xl font-bold text-accent/10 font-heading leading-none">
-                          {product.id}
-                        </span>
-                      </div>
-                      <img 
-                        src={product.image} 
-                        alt={product.name} 
-                        className="w-full h-auto object-contain max-h-[200px] drop-shadow-xl transition-transform hover:scale-105 duration-500" 
-                      />
-                    </div>
+                  {/* Product Name */}
+                  <div className="p-6 pb-3 text-center bg-gradient-to-b from-orange-50/50 to-white">
+                    <h3 className="text-2xl font-heading font-bold text-primary">{product.name}</h3>
+                    <Badge variant="outline" className="border-accent text-accent mt-2">
+                      {product.fullName}
+                    </Badge>
+                  </div>
 
-                    {/* Content Section */}
-                    <div className="md:col-span-2 p-8 flex flex-col justify-center">
-                      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
-                        <div>
-                          <h3 className="text-3xl font-heading font-bold text-primary flex items-center gap-3">
-                            {product.name}
-                            <Badge variant="outline" className="border-accent text-accent">
-                              {product.fullName}
-                            </Badge>
-                          </h3>
-                        </div>
-                      </div>
-                      
-                      <div className="bg-blue-50/50 p-6 rounded-xl border border-blue-100/50">
-                        <span className="block text-accent font-bold text-sm mb-2 uppercase tracking-wide flex items-center gap-2">
-                          <span className="w-2 h-2 rounded-full bg-accent"></span>
-                          Available Sizes
-                        </span>
-                        <p className="text-lg font-medium text-foreground/90">
-                          {product.sizes}
-                        </p>
+                  {/* Product Image Container */}
+                  <div className="relative h-64 overflow-hidden bg-gradient-to-b from-orange-50/30 to-white p-4">
+                    <img
+                      src={product.image}
+                      alt={product.name}
+                      className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110"
+                    />
+                    
+                    {/* Hover Overlay with Product's specs */}
+                    <div className="absolute inset-0 bg-accent/95 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-6 flex flex-col justify-center">
+                      <h4 className="text-white font-bold text-lg mb-3 text-center">Product's specs</h4>
+                      <div className="space-y-2">
+                        {product.specs.map((spec, idx) => (
+                          <p key={idx} className="text-white/90 text-sm leading-relaxed">
+                            • {spec}
+                          </p>
+                        ))}
                       </div>
                     </div>
+                  </div>
+
+                  {/* Bottom Info */}
+                  <div className="p-6 pt-3 text-center bg-gradient-to-t from-orange-50/30 to-white">
+                    <p className="text-muted-foreground text-sm">
+                      Different sizes available <Link href="/contact" className="text-accent hover:underline font-medium">contact</Link>
+                    </p>
                   </div>
                 </motion.div>
               ))}
             </div>
 
-            <div className="mt-12 bg-blue-50 p-8 rounded-xl border border-blue-100 text-center">
+            <div className="mt-12 bg-orange-50/50 p-8 rounded-xl border border-orange-100 text-center">
               <h3 className="text-xl font-bold mb-4 text-primary">Packing Options</h3>
               <p className="text-muted-foreground mb-6">
                 All products can be packed according to specific customer requirements.
               </p>
               <div className="flex flex-wrap justify-center gap-3">
-                  {["Bulk", "IWP", "IVP", "Block", "Retail Pack"].map((item) => (
-                  <div key={item} className="bg-white border border-blue-200 rounded-full px-6 py-2 text-sm text-primary font-bold shadow-sm">
+                {["Bulk", "IWP", "IVP", "Block", "Retail Pack"].map((item) => (
+                  <div key={item} className="bg-white border border-orange-200 rounded-full px-6 py-2 text-sm text-primary font-bold shadow-sm">
                     {item}
                   </div>
                 ))}
